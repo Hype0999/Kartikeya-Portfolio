@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartikeya Saini | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --card: rgba(255, 255, 255, 0.08);
+      --neon: #00e5ff;
+      --neon2: #7c4dff;
+      --text: #fff;
+      --muted: #b0b0b0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background: linear-gradient(-45deg, #000000, #0b0b0f, #1a1a2e, #000000);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* HERO */
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(26, 26, 46, 0.8), rgba(0, 0, 0, 0.9));
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header h1 {
+      font-size: 4rem;
+      background: linear-gradient(90deg, var(--neon), var(--neon2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px var(--neon);
+      animation: slideIn 1.2s ease-out;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    header p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 1.2rem;
+      animation: fadeIn 1.2s ease 0.3s both;
+    }
+    .btn {
+      margin: 30px 10px 0;
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: 1px solid var(--neon);
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .btn:hover {
+      background: var(--neon);
+      color: #000;
+      box-shadow: 0 0 20px var(--neon);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 10%;
+      background: rgba(11, 11, 15, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin: 20px auto;
+      max-width: 1200px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h2 {
+      text-align: center;
+      color: var(--neon);
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px var(--neon);
+      animation: slideIn 1s ease-out;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.1rem;
+      animation: fadeIn 1s ease 0.2s both;
+    }
+    .school-img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(124, 77, 255, 0.5);
+      animation: zoomIn 1s ease-out;
+      transition: transform 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .school-img:hover {
+      transform: scale(1.05);
+    }
+
+    /* PROJECTS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(15px);
+      padding: 25px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-out;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+      animation: pulse 2s infinite 0.5s;
+    }
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    .card h3 {
+      color: var(--neon2);
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* SKILLS */
+    .skill {
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease 0.2s both;
+    }
+    .skill h4 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    .bar {
+      height: 10px;
+      background: #222;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon), var(--neon2));
+      animation: fillBar 1.5s ease-in-out forwards;
+    }
+    @keyframes fillBar {
+      from { width: 0; }
+      to { width: var(--width); }
+    }
+
+    /* CONTACT */
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      animation: fadeIn 1s ease 0.2s both;
+    }
+    input, textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #1a1a1a;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: 1px solid var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+    }
+    textarea {
+      height: 120px;
+    }
+    button.btn {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+      background: rgba(11, 11, 15, 0.9);
+      backdrop-filter: blur(10px);
+      margin-top: 40px;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      backdrop-filter: blur(5px);
+    }
+    .modal-content {
+      background: rgba(20, 20, 30, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 30px;
+      border-radius: 25px;
+      max-width: 600px;
+      width: 90%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: popup 0.4s ease-in-out;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      max-height: 90vh;
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+    .modal-header h2 {
+      margin: 0;
+      color: var(--neon);
+      font-size: 1.5rem;
+    }
+    .modal-header .close, .modal-header .back {
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--neon);
+      transition: transform 0.3s ease;
+    }
+    .modal-header .back:hover, .modal-header .close:hover {
+      transform: rotate(90deg);
+    }
+    .modal-body {
+      overflow-y: auto;
+      flex-grow: 1;
+      padding: 10px 0;
+    }
+    .modal-body img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+    .modal-body p {
+      margin-bottom: 15px;
+      color: var(--muted);
+    }
+    .modal-body .badge {
+      display: inline-block;
+      margin: 5px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(0, 229, 255, 0.15);
+      color: var(--neon);
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+    .modal-body .badge:hover {
+      background: rgba(0, 229, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* PLATFORMS */
+    #platforms .platform-img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+    #platforms .platform-card:hover .platform-img {
+      transform: scale(1.05);
+    }
+    #platforms .platform-card h3 {
+      color: var(--neon2);
+      margin-bottom: 10px;
+    }
+    #platforms .platform-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 3rem;
+      }
+      section {
+        padding: 60px 5%;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Kartikeya Saini</h1>
+      <p>Student Innovator | Robotics & IoT Enthusiast</p>
+      <a href="#projects"><button class="btn">View Projects</button></a>
+      <a href="#gallery"><button class="btn">Gallery</button></a>
+      <a href="#contact"><button class="btn">Contact Me</button></a>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p class="about">
+      I am Kartikeya Saini, a Class 10 student from OPJS Raigarh, India.
+      I love building robotics and IoT projects that solve real-world problems.
+      I am a selected INSPIRE Award student and winner of multiple school-level
+      science and robotics competitions.
+    </p>
+    <img src="school.jpg" alt="OPJS Raigarh School" class="school-img">
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card" onclick="openModal('shoe')">
+        <img src="shoe.jpg" alt="Say Goodbye to Stinking Shoe">
+        <h3>Say Goodbye to Stinking Shoe</h3>
+        <p>Sweat evaporation system</p>
+      </div>
+      <div class="card" onclick="openModal('cycle')">
+        <img src="bicycle.jpg" alt="Smart Bicycle System">
+        <h3>Smart Bicycle System</h3>
+        <p>Safety & fall detection</p>
+      </div>
+      <div class="card" onclick="openModal('helmet')">
+        <img src="helmet.jpg" alt="Smart Helmet">
+        <h3>Smart Helmet</h3>
+        <p>Fan & wear detection</p>
+      </div>
+      <div class="card" onclick="openModal('casaos')">
+        <img src="casaos.jpg" alt="Raspberry Pi CasaOS Home Server">
+        <h3>Raspberry Pi CasaOS Home Server</h3>
+        <p>Home server with CasaOS for file sharing, media streaming, and web hosting</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Project Gallery</h2>
+    <div class="gallery">
+      <img src="gallery1.jpg" alt="Project 1">
+      <img src="gallery2.jpg" alt="Project 2">
+      <img src="gallery3.jpg" alt="Project 3">
+      <img src="gallery4.jpg" alt="Project 4">
+      <img src="gallery5.jpg" alt="Project 5">
+      <img src="gallery6.jpg" alt="Project 6">
+      <img src="gallery7.jpg" alt="Project 7">
+      <img src="gallery8.jpg" alt="Project 8">
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <h4>Arduino</h4>
+      <div class="bar"><div class="fill" style="--width:90%"></div></div>
+    </div>
+    <div class="skill">
+      <h4>ESP8266 / NodeMCU</h4>
+      <div class="bar"><div class="fill" style="--width:85%"></div></div>
+    </div>
+    <div class="skill">
+      <h4>IoT & Sensors</h4>
+      <div class="bar"><div class="fill" style="--width:80%"></div></div>
+    </div>
+  </section>
+
+  <section id="platforms">
+    <h2>Platforms & Technologies</h2>
+    <div class="grid">
+      <div class="card platform-card">
+        <img src="arduino.jpg" alt="Arduino" class="platform-img">
+        <h3>Arduino</h3>
+        <p>Arduino is an open-source microcontroller platform used for building interactive projects. It's perfect for beginners and experts alike.</p>
+      </div>
+      <div class="card platform-card">
+        <img src="raspberry-pi.jpg" alt="Raspberry Pi" class="platform-img">
+        <h3>Raspberry Pi</h3>
+        <p>Raspberry Pi is a small, affordable computer for learning, programming, and building projects like robotics and home automation.</p>
+      </div>
+      <div class="card platform-card">
+        <img src="esp8266.jpg" alt="ESP8266" class="platform-img">
+        <h3>ESP8266</h3>
+        <p>ESP8266 is a low-cost Wi-Fi microcontroller popular in IoT projects, allowing devices to connect wirelessly to the internet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfutQtyYzAbgQvboYpixcDMFIJCv7G9Vm30JHZObR5R6j9DA/viewform?usp=dialogviewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </section>
+
+  <footer>
+    © 2025 Kartikeya Saini • Built with Code & Passion
+  </footer>
+
+  <!-- MODAL -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="mTitle"></h2>
+        <span class="back" onclick="closeModal()">← Back</span>
+        <span class="close" onclick="closeModal()">×</span>
+      </div>
+      <div class="modal-body">
+        <img id="mImg">
+        <p id="mDesc"></p>
+        <div id="mTech"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const data = {
+      shoe: {
+        title: "Say Goodbye to Stinking Shoe",
+        img: "shoe.jpg",
+        desc: "A smart shoe using ESP8266, fan and sensors to reduce sweat and odor. Includes timer-based and AI-assisted control with mobile app concept.",
+        tech: ["ESP8266", "DHT11", "PWM Fan", "IoT", "Mobile App"]
+      },
+      cycle: {
+        title: "Smart Bicycle Safety System",
+        img: "bicycle.jpg",
+        desc: "Arduino Mega based bicycle safety system with LED indicators and fall detection using accelerometer.",
+        tech: ["Arduino Mega", "Accelerometer", "LEDs", "Safety"]
+      },
+      helmet: {
+        title: "Smart Helmet Concept",
+        img: "helmet.jpg",
+        desc: "Concept helmet with internal fan, wear detection, simple UI and safety-first design.",
+        tech: ["Embedded", "Safety Tech", "UI Concept"]
+      },
+      casaos: {
+        title: "Raspberry Pi CasaOS Home Server",
+        img: "casaos.jpg",
+        desc: "A home server built with Raspberry Pi and CasaOS for file sharing, media streaming, and web hosting. Allows easy access to files, runs lightweight web apps, and streams media across the network.",
+        tech: ["Raspberry Pi", "CasaOS", "Linux", "Web Hosting", "Media Streaming"]
+      }
+    };
+
+    function openModal(p) {
+      document.getElementById("mTitle").innerText = data[p].title;
+      document.getElementById("mImg").src = data[p].img;
+      document.getElementById("mDesc").innerText = data[p].desc;
+      document.getElementById("mTech").innerHTML = "";
+      data[p].tech.forEach(t => {
+        let s = document.createElement("span");
+        s.className = "badge";
+        s.innerText = t;
+        document.getElementById("mTech").appendChild(s);
+      });
+      document.getElementById("projectModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("projectModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
